@@ -1,3 +1,5 @@
+要更改控件的background-color 在QSS里setstyle要加上一句 border:none 使原生border失效
+
 https://stackoverflow.com/questions/20668060/pyqt-qpushbutton-background-color
 This doesn't work for me on PyQt 5.14. I have to set （border:  none） to change color, according to this answer. 
 it seems bizarre that one needs now to remove the border in order to change the background color
@@ -9,4 +11,3 @@ button.setStyleSheet('QPushButton {background-color: #A3C1DA}')
 and not able to do so, just modify the above instruction to
 button.setStyleSheet('QPushButton {background-color: #A3C1DA; border:  none}')
 And it will change the button color, so the trick is to remove the border
-
