@@ -1,0 +1,34 @@
+要更改控件的background-color 在QSS里setstyle要加上一句 border:none 使原生border失效
+
+https://stackoverflow.com/questions/20668060/pyqt-qpushbutton-background-color
+This doesn't work for me on PyQt 5.14. I have to set （border:  none） to change color, according to this answer. 
+it seems bizarre that one needs now to remove the border in order to change the background color
+
+https://stackoverflow.com/questions/24659239/how-to-change-qpushbutton-text-and-background-color/55585279#55585279
+
+For those who still want to change color of button with the instruction
+button.setStyleSheet('QPushButton {background-color: #A3C1DA}')
+and not able to do so, just modify the above instruction to
+button.setStyleSheet('QPushButton {background-color: #A3C1DA; border:  none}')
+And it will change the button color, so the trick is to remove the border
+
+
+版权声明：本文为CSDN博主「三公子Tjq」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/naibozhuan3744/article/details/80913651
+
+1.1当要设置QPushbutton按钮背景，字体颜色，鼠标滑过状态，鼠标单击后状态时，可以用QSS来设置，具体的代码如下：
+    QPushButton *allSelect = new QPushButton;
+    allSelect->setStyleSheet("QPushButton{border-image: url(:/1.png) 0 0 0 0;border:none;color:rgb(255, 255, 255);}"
+                            "QPushButton:hover{background-color: rgb(20, 62, 134);border:none;color:rgb(255, 255, 255);}"
+                            "QPushButton:checked{background-color: rgb(20, 62, 134);border:none;color:rgb(255, 255, 255);}");
+ 
+1.2另一种设置按钮图标显示。下面代码功能是在一个按钮内显示图标和文字，效果为左图标，右文字。当鼠标滑过时图标切换为另一个图标。当点击鼠标后又切换到另一个图标。具体代码如下：
+
+    QPushButton *readyRecoveryBtn = new QPushButton("str");
+    readyRecoveryBtn->setFixedSize(QSize(95,20));
+    readyRecoveryBtn->setStyleSheet("QPushButton{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:white;}"
+                                "QPushButton:hover{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:rgb(255, 255, 255);}"
+                                "QPushButton:pressed{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:rgb(255, 255, 255);}");
+ 
+
+ 
